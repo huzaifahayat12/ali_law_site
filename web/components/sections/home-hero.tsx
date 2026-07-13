@@ -10,19 +10,19 @@ export function HomeHero() {
         alt={`${SITE.advocate}, ${SITE.title}`}
         fill
         priority
-        className="object-cover object-[center_20%]"
+        className="pointer-events-none object-cover object-[center_20%]"
         sizes="100vw"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/25"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/25"
         aria-hidden
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30"
         aria-hidden
       />
 
-      <div className="container-site relative flex min-h-[100svh] flex-col justify-end pb-16 pt-28 md:justify-center md:pb-24 md:pt-32">
+      <div className="container-site relative z-10 flex min-h-[100svh] flex-col justify-end pb-16 pt-28 md:justify-center md:pb-24 md:pt-32">
         <div className="max-w-2xl animate-[fade-up_0.8s_ease-out_both]">
           <h1 className="text-4xl font-bold uppercase tracking-[0.06em] text-white sm:text-5xl md:text-6xl lg:text-7xl">
             {SITE.name}
