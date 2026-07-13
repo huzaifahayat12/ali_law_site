@@ -1,8 +1,22 @@
-# Local media dump — keep out of version control for now
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Next.js
+web/.next/
+web/out/
+web/node_modules/
+
+# Local media dump
 images_all/
 
-# Project planning docs — keep out of version control for now
-# (use docs/* so brand logo can be re-included below)
+# Project planning docs
 docs/*
 !docs/brand/
 docs/brand/*
@@ -10,8 +24,20 @@ docs/brand/*
 !docs/brand/logo/**
 !docs/brand/export_logo.py
 
-# Markdown notes — keep out of version control for now
-# (README.md at repo root is already tracked)
+# Markdown notes
 *.md
 !docs/brand/logo/README.md
 !/README.md
+!web/README.md
+
+# Env
+.env
+.env*.local
+
+# Debug / OS
+npm-debug.log*
+.DS_Store
+*.pem
+.vercel
+*.tsbuildinfo
+next-env.d.ts

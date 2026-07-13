@@ -1,15 +1,28 @@
-# Ali Law Website
+# Ali Law Associate — Website
 
-Professional website for Ali Law.
+Professional marketing site for **Ali Law Associate** (Ali Raza Wahga, Advocate High Court, Lahore).
 
-## Documentation first
+## App location
 
-Application code has **not** been started. Project planning lives in [`docs/`](./docs/).
+The Next.js app lives in [`web/`](./web/).
 
-1. Start with [`docs/ROADMAP.md`](./docs/ROADMAP.md)
-2. Complete and approve each phase document under [`docs/phases/`](./docs/phases/)
-3. Coding begins only after the global approval gate in the roadmap is signed off
+```bash
+cd web
+npm install
+npm run dev
+```
 
-## Existing assets
+Open [http://localhost:3000](http://localhost:3000).
 
-Raw media dump: `images_all/` (gitignored). Curate and optimize during Design System / Project Setup — do not ship the dump as-is.
+**Note:** This project expects Node.js 18+ (20/22 recommended).
+
+## Stack
+
+- Next.js (App Router) · TypeScript · Tailwind CSS · Lucide icons
+- Theme: Shaukat Gold · Poppins · light default + dark toggle
+- Home: Variation A — Portrait Authority
+
+## Contact (v1)
+
+- WhatsApp: 0333 4389957
+- Email: Wahga70007@gmail.com
