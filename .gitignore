@@ -2,5 +2,16 @@
 images_all/
 
 # Project planning docs — keep out of version control for now
-docs/
+# (use docs/* so brand logo can be re-included below)
+docs/*
+!docs/brand/
+docs/brand/*
+!docs/brand/logo/
+!docs/brand/logo/**
+!docs/brand/export_logo.py
+
+# Markdown notes — keep out of version control for now
+# (README.md at repo root is already tracked)
 *.md
+!docs/brand/logo/README.md
+!/README.md
