@@ -114,6 +114,58 @@ export const HOME_COPY = {
   ctaSupport: "Message on WhatsApp for the fastest response.",
 } as const;
 
+export const ABOUT_COPY = {
+  introLabel: "About",
+  introHeadline: SITE.name,
+  introSupport: `${SITE.advocate} · ${SITE.title} · ${SITE.city}`,
+  storyH2: "A Lahore chamber practice",
+  storyBody: [
+    "Ali Law Associate is built around clear counsel and steady courtroom presence. Led by Ali Raza Wahga, Advocate High Court, the practice serves clients across civil, criminal, family, property, commercial, and related matters.",
+    "Work runs from Manki Chambers on Turner Road to appearances before the Lahore High Court — formal in tradition, direct in how we communicate, and practical about what a matter needs next.",
+  ],
+  valuesH2: "What we hold to",
+  valuesBody: "Standards that shape every brief and every conversation.",
+  values: [
+    {
+      title: "Client-centered",
+      body: "You understand the issue, the options, and the next step — without unnecessary jargon.",
+    },
+    {
+      title: "Thorough preparation",
+      body: "Papers, authorities, and argument are ready before the hearing, not assembled at the door.",
+    },
+    {
+      title: "Accessible counsel",
+      body: "Reach us on WhatsApp, by call, or email when facts change and you need a prompt reply.",
+    },
+  ],
+  photoCaption:
+    "Chamber work and court presence — advocacy rooted in Lahore.",
+  credentialsH2: "Standing & practice",
+  credentialsBody:
+    "Standing of the practice as confirmed today. Education and further affiliations can be added when verified.",
+  credentials: [
+    {
+      label: "Advocate",
+      value: `${SITE.advocate}, ${SITE.title}`,
+    },
+    {
+      label: "Practice",
+      value: `${SITE.name} · Full-spectrum advocacy`,
+    },
+    {
+      label: "Chambers",
+      value: SITE.address,
+    },
+    {
+      label: "Forum",
+      value: "Lahore High Court and related forums",
+    },
+  ],
+  ctaH2: "Discuss your matter",
+  ctaSupport: "Message on WhatsApp for the fastest response — or use the contact form.",
+} as const;
+
 export const HOME_GALLERY = [
   {
     src: "/images/team-group.jpg",
