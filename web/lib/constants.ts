@@ -280,6 +280,50 @@ export const FAQ_COPY = {
     "Message on WhatsApp with a short summary of your matter — we will point you to the next step.",
 } as const;
 
+export const CONTACT_COPY = {
+  introLabel: "Contact",
+  introHeadline: SITE.name,
+  introSupport:
+    "Reach chambers by WhatsApp, call, email, or the form below — we will point you to the next step.",
+  channelsH2: "Ways to reach us",
+  channelsBody:
+    "WhatsApp is usually fastest. Use the form if you prefer email — messages go directly to chambers.",
+  formH2: "Send a message",
+  formBody:
+    "Share a short summary of your matter. We reply by email or WhatsApp during working hours.",
+  formNote:
+    "Submitting this form does not create an attorney–client relationship.",
+  nameLabel: "Full name",
+  phoneLabel: "Phone / WhatsApp",
+  emailLabel: "Email",
+  matterLabel: "Matter type",
+  matterPlaceholder: "Select an area",
+  messageLabel: "How can we help?",
+  messagePlaceholder:
+    "Brief facts, any hearing date, and what you need next…",
+  submitLabel: "Send message",
+  submittingLabel: "Sending…",
+  successMessage:
+    "Thank you. Your message has been sent — we will be in touch shortly.",
+  errorMessage:
+    "Something went wrong. Please try WhatsApp or call, or email us directly.",
+  visitH2: "Visit chambers",
+  visitBody:
+    "In-person consults at Manki Chambers on Turner Road — confirm a time before you travel.",
+  mapCaption: "Manki Chambers · 9-Turner Road · Lahore",
+  ctaH2: "Prefer a quick reply?",
+  ctaSupport: "WhatsApp is the fastest path for a first response.",
+  matters: [
+    "Civil Litigation",
+    "Criminal Law",
+    "Family Law",
+    "Property / Real Estate",
+    "Corporate & Commercial",
+    "Constitutional Law",
+    "Other / Not sure",
+  ],
+} as const;
+
 export const FAQ_CATEGORIES = [
   { id: "all", label: "All" },
   { id: "getting-started", label: "Getting started" },
