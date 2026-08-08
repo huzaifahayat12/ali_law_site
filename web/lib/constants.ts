@@ -12,7 +12,7 @@ export const SITE = {
     "Assalam o Alaikum, I would like to inquire about legal consultation with Ali Law Associate.",
 } as const;
 
-export function whatsappUrl(message = SITE.whatsappGreeting) {
+export function whatsappUrl(message: string = SITE.whatsappGreeting) {
   return `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
@@ -182,5 +182,131 @@ export const HOME_GALLERY = [
   {
     src: "/images/court-matter.jpg",
     alt: "Counsel outside the court building",
+  },
+] as const;
+
+export const PRACTICE_COPY = {
+  introLabel: "Practice areas",
+  introHeadline: SITE.name,
+  introSupport:
+    "Clear guides to the matters we handle — read the overview, common issues, and how counsel helps.",
+  guideH2: "How to use this page",
+  guideBody:
+    "Pick an area below, or jump straight to the section that matches your situation. Each guide is written for clients who want to understand the landscape before the consult.",
+  guideNote:
+    "This page is for orientation — not legal advice. Bring your facts to WhatsApp or chambers for counsel on your matter.",
+  ctaH2: "Not sure which area fits?",
+  ctaSupport:
+    "Describe your situation on WhatsApp — we will point you to the right path and next step.",
+} as const;
+
+export const PRACTICE_AREAS = [
+  {
+    slug: "civil-litigation",
+    label: "Civil Litigation",
+    image: "/images/practice/civil-litigation.jpg",
+    imageAlt: "Legal documents and preparation for civil proceedings",
+    overview:
+      "Civil litigation covers disputes between individuals or organisations — contracts, money claims, injunctions, and related relief before civil courts and the High Court.",
+    commonMatters: [
+      "Breach of contract and recovery of money",
+      "Injunctions and interim relief",
+      "Specific performance and declaration suits",
+      "Appeals and revisions in civil matters",
+    ],
+    howWeHelp:
+      "We frame the claim or defence, prepare pleadings and evidence, and appear for hearings with a clear view of settlement options versus trial.",
+    studyTip:
+      "Write down dates, amounts, and any written agreements before the consult — timelines drive civil strategy.",
+  },
+  {
+    slug: "criminal-law",
+    label: "Criminal Law",
+    image: "/images/practice/criminal-law.jpg",
+    imageAlt: "Courthouse corridor associated with criminal proceedings",
+    overview:
+      "Criminal matters involve the state and the accused — from first information and bail to trial, appeal, and related High Court proceedings.",
+    commonMatters: [
+      "Bail applications and cancellation",
+      "Trial representation and defence strategy",
+      "Quashment and High Court petitions",
+      "Appeals against conviction or sentence",
+    ],
+    howWeHelp:
+      "Urgent steps first (bail, protection of rights), then a structured defence or prosecution support with papers ready for each stage.",
+    studyTip:
+      "Keep copies of the FIR, remand papers, and any notices. Note every court date and who appeared.",
+  },
+  {
+    slug: "family-law",
+    label: "Family Law",
+    image: "/images/practice/family-law.jpg",
+    imageAlt: "People together representing family and personal matters",
+    overview:
+      "Family law addresses marriage, divorce, custody, maintenance, and related personal status questions with care for both procedure and the people involved.",
+    commonMatters: [
+      "Khula, divorce, and dissolution proceedings",
+      "Custody and visitation arrangements",
+      "Maintenance and dower claims",
+      "Guardianship and related petitions",
+    ],
+    howWeHelp:
+      "Plain-language options, filings prepared for the family forum, and steady updates so you know what each hearing is for.",
+    studyTip:
+      "List dependents, existing orders, and what outcome you need most — custody, maintenance, or status clarity.",
+  },
+  {
+    slug: "property-real-estate",
+    label: "Property / Real Estate",
+    image: "/images/practice/property-real-estate.jpg",
+    imageAlt: "Residential property and real estate context",
+    overview:
+      "Property work spans title, possession, transfers, and disputes over land or buildings — often document-heavy and fact-specific.",
+    commonMatters: [
+      "Title disputes and possession suits",
+      "Specific performance of sale agreements",
+      "Partition and co-ownership issues",
+      "Mutation, registry, and transfer questions",
+    ],
+    howWeHelp:
+      "We review documents first, map ownership and risk, then pursue negotiation or court action with papers that match the registry trail.",
+    studyTip:
+      "Gather sale deeds, mutation records, site plans, and any notices — property cases turn on the paper trail.",
+  },
+  {
+    slug: "corporate-commercial",
+    label: "Corporate & Commercial",
+    image: "/images/practice/corporate-commercial.jpg",
+    imageAlt: "Commercial documents and business counsel",
+    overview:
+      "Corporate and commercial counsel supports companies and traders — contracts, disputes, and day-to-day legal structure for business in Lahore and beyond.",
+    commonMatters: [
+      "Commercial contracts and dispute resolution",
+      "Partnership and company-related issues",
+      "Recovery and enforcement for businesses",
+      "Advisory on transactions and risk",
+    ],
+    howWeHelp:
+      "Practical drafting and negotiation where possible; litigation when needed — always with commercial timelines in mind.",
+    studyTip:
+      "Bring the contract, correspondence, and a short timeline of performance and breach.",
+  },
+  {
+    slug: "constitutional-law",
+    label: "Constitutional Law",
+    image: "/images/practice/constitutional-law.jpg",
+    imageAlt: "Classical columns suggesting constitutional and High Court advocacy",
+    overview:
+      "Constitutional practice focuses on fundamental rights, writ jurisdiction, and High Court petitions where state action or public duty is in question.",
+    commonMatters: [
+      "Writ petitions under High Court jurisdiction",
+      "Fundamental rights and public law remedies",
+      "Service and regulatory challenges where appropriate",
+      "Related appellate and review steps",
+    ],
+    howWeHelp:
+      "We assess whether a constitutional remedy fits, prepare a focused petition, and argue for relief that matches the rights and facts at stake.",
+    studyTip:
+      "Note the authority you are challenging, the order or omission, and the right you say was affected — precision matters in writs.",
   },
 ] as const;
