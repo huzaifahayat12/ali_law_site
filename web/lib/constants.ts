@@ -246,6 +246,204 @@ export const UPDATES: readonly {
   body: string;
 }[] = [];
 
+export const FAQ_COPY = {
+  introLabel: "FAQ",
+  introHeadline: SITE.name,
+  introSupport:
+    "Clear answers to common questions — consultation, process, fees, and how to reach chambers.",
+  overviewH2: "Find what you need",
+  overviewBody:
+    "Browse by topic or search. These answers are for orientation — your facts decide the next step.",
+  overviewNote:
+    "Nothing here creates an attorney–client relationship or replaces advice on your matter.",
+  tipsH2: "Before you message",
+  tips: [
+    {
+      title: "Gather the basics",
+      body: "Dates, parties, orders, and any FIR, notices, or contracts you already have.",
+    },
+    {
+      title: "Say what you need",
+      body: "Bail, injunction, divorce, title clarity — a short goal helps us respond faster.",
+    },
+    {
+      title: "Prefer WhatsApp",
+      body: "Fastest path for a first reply. Call or email if that suits you better.",
+    },
+  ],
+  listH2: "Questions & answers",
+  listBody: "Select a topic or type a keyword to narrow the list.",
+  searchPlaceholder: "Search questions…",
+  emptySearch: "No questions match that search. Try another word or clear the filter.",
+  ctaH2: "Still have a question?",
+  ctaSupport:
+    "Message on WhatsApp with a short summary of your matter — we will point you to the next step.",
+} as const;
+
+export const FAQ_CATEGORIES = [
+  { id: "all", label: "All" },
+  { id: "getting-started", label: "Getting started" },
+  { id: "process", label: "Process" },
+  { id: "fees", label: "Fees" },
+  { id: "practice", label: "Practice areas" },
+  { id: "chambers", label: "Chambers & contact" },
+] as const;
+
+export type FaqCategoryId = (typeof FAQ_CATEGORIES)[number]["id"];
+
+export const FAQ_ITEMS: readonly {
+  id: string;
+  category: Exclude<FaqCategoryId, "all">;
+  question: string;
+  answer: string;
+}[] = [
+  {
+    id: "book-consult",
+    category: "getting-started",
+    question: "How do I book a consultation?",
+    answer:
+      "Message us on WhatsApp with a short summary of your matter, or call during chamber hours. We will confirm a time for a WhatsApp discussion or an in-person meeting at Manki Chambers, Turner Road, Lahore.",
+  },
+  {
+    id: "first-meeting-bring",
+    category: "getting-started",
+    question: "What should I bring to the first meeting?",
+    answer:
+      "Bring identity documents, any court orders, FIR or police papers, contracts, title deeds, notices, and a written timeline of key dates. Photos or scans on your phone are fine for a first look — originals help when we prepare filings.",
+  },
+  {
+    id: "whatsapp-consult",
+    category: "getting-started",
+    question: "Can we discuss my matter on WhatsApp first?",
+    answer:
+      "Yes. WhatsApp is the fastest way to share facts and documents. We use it to triage urgency (for example bail or interim relief) and to decide whether an in-chamber consult is needed next.",
+  },
+  {
+    id: "creates-relationship",
+    category: "getting-started",
+    question: "Does contacting you create an attorney–client relationship?",
+    answer:
+      "No. A first inquiry or browse of this site does not create an attorney–client relationship. Engagement begins when both sides agree on the scope of work and the terms of representation.",
+  },
+  {
+    id: "urgent-matter",
+    category: "getting-started",
+    question: "What if my matter is urgent — bail or interim relief?",
+    answer:
+      "Say so clearly in your first message and share the next hearing date or remand status. Urgent criminal and interim steps are prioritised so we can advise on timing and papers as soon as possible.",
+  },
+  {
+    id: "after-consult",
+    category: "process",
+    question: "What happens after the first consult?",
+    answer:
+      "We frame the issue, outline options and risks, and agree next steps — filings, appearance, or further document review. You leave knowing where the matter stands and what we need from you.",
+  },
+  {
+    id: "which-courts",
+    category: "process",
+    question: "Which forums do you appear in?",
+    answer:
+      "Practice centres on the Lahore High Court and related forums, with chamber work at Manki Chambers. Exact forum depends on the matter — civil, criminal, family, property, commercial, or constitutional.",
+  },
+  {
+    id: "case-updates",
+    category: "process",
+    question: "How will I get updates on my case?",
+    answer:
+      "We keep you informed of hearing dates, filings, and material developments — usually by WhatsApp or call. You can also reach chambers when something on your side changes and you need a prompt reply.",
+  },
+  {
+    id: "how-long",
+    category: "process",
+    question: "How long does a typical matter take?",
+    answer:
+      "Timelines vary widely by forum, backlog, and whether the other side contests every step. At consult we give a realistic range for the stage you are in — not a guarantee — and update that view as the file moves.",
+  },
+  {
+    id: "settlement-vs-trial",
+    category: "process",
+    question: "Do you always push for trial, or can matters settle?",
+    answer:
+      "We prepare as if the hearing matters, and we also assess settlement where it protects your interests. You get a plain comparison of options so you can decide with eyes open.",
+  },
+  {
+    id: "fee-structure",
+    category: "fees",
+    question: "How are fees structured?",
+    answer:
+      "Fees depend on the nature of the matter, urgency, and the work involved — consult, drafting, appearances, and follow-through. We discuss the fee position clearly before formal engagement so you know what you are committing to.",
+  },
+  {
+    id: "other-costs",
+    category: "fees",
+    question: "What other costs should I expect?",
+    answer:
+      "Court fees, stamp duty, process fees, certified copies, and similar out-of-pocket items are usually separate from counsel fees. We flag likely expenses when we map the next steps.",
+  },
+  {
+    id: "payment-timing",
+    category: "fees",
+    question: "When is payment expected?",
+    answer:
+      "Payment terms are agreed when we take on the matter — often a portion at engagement and further amounts tied to stages of work. Exact terms are confirmed in writing for your file.",
+  },
+  {
+    id: "which-areas",
+    category: "practice",
+    question: "What practice areas do you handle?",
+    answer:
+      "Civil litigation, criminal law, family law, property and real estate, corporate and commercial, and constitutional matters. See the Practice Area page for overviews of each.",
+  },
+  {
+    id: "criminal-bail",
+    category: "practice",
+    question: "Do you handle bail and criminal defence?",
+    answer:
+      "Yes. Criminal work includes bail, trial representation, quashment and High Court petitions, and appeals — with urgent steps taken first when liberty or remand is at stake.",
+  },
+  {
+    id: "property-disputes",
+    category: "practice",
+    question: "Can you help with property title or possession disputes?",
+    answer:
+      "Yes. Property matters often turn on the paper trail — sale deeds, mutation, agreements, and notices. We review documents first, then advise on negotiation or court action.",
+  },
+  {
+    id: "family-matters",
+    category: "practice",
+    question: "Do you take family matters such as khula, custody, or maintenance?",
+    answer:
+      "Yes. Family work covers dissolution, custody and visitation, maintenance and dower, and related petitions — with plain-language options and steady updates through each hearing.",
+  },
+  {
+    id: "chambers-location",
+    category: "chambers",
+    question: "Where are your chambers?",
+    answer: `Manki Chambers, 5th Floor, 9-Turner Road, Lahore. Ask for ${SITE.advocate}, ${SITE.title}.`,
+  },
+  {
+    id: "best-contact",
+    category: "chambers",
+    question: "What is the best way to reach you?",
+    answer: `WhatsApp on ${SITE.phoneDisplay} is usually fastest. You can also call the same number, email ${SITE.email}, or use the contact form on this site.`,
+  },
+  {
+    id: "response-time",
+    category: "chambers",
+    question: "How quickly do you reply?",
+    answer:
+      "We aim to respond promptly on WhatsApp during working hours. If the matter is time-sensitive, mark it as urgent and include the next court date or deadline in your first message.",
+  },
+  {
+    id: "languages",
+    category: "chambers",
+    question: "Can we communicate in Urdu or English?",
+    answer:
+      "Yes. We work with clients in Urdu and English — choose whichever lets you explain the facts most clearly.",
+  },
+];
+
 export const PRACTICE_AREAS = [
   {
     slug: "civil-litigation",
