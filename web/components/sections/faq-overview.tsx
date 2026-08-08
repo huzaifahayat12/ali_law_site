@@ -5,7 +5,7 @@ export function FaqOverview() {
     <section className="bg-surface py-16 md:py-20">
       <div className="container-site">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.05fr)] lg:gap-16">
-          <div className="max-w-md animate-[fade-up_0.7s_ease-out_both]">
+          <div className="max-w-md" data-reveal>
             <div className="accent-rule mb-6" aria-hidden />
             <h2 className="text-3xl font-semibold tracking-tight text-ink md:text-4xl">
               {FAQ_COPY.overviewH2}
@@ -18,23 +18,26 @@ export function FaqOverview() {
             </p>
             <a
               href="#faq-list"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-accent transition-colors hover:text-accent-hover"
+              className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-accent hover:text-accent-hover"
             >
               Browse questions
-              <span aria-hidden>→</span>
+              <span className="motion-arrow" aria-hidden>
+                →
+              </span>
             </a>
           </div>
 
           <div>
-            <p className="mb-5 text-xs font-semibold tracking-[0.18em] text-muted uppercase">
+            <p className="mb-5 text-xs font-semibold tracking-[0.18em] text-muted uppercase" data-reveal>
               {FAQ_COPY.tipsH2}
             </p>
             <ul className="divide-y divide-border border-y border-border">
               {FAQ_COPY.tips.map((tip, index) => (
                 <li
                   key={tip.title}
-                  className="flex gap-5 py-5 animate-[fade-up_0.7s_ease-out_both] sm:gap-8"
-                  style={{ animationDelay: `${0.08 * (index + 1)}s` }}
+                  className="flex gap-5 py-5 sm:gap-8"
+                  data-reveal
+                  style={{ ["--reveal-delay" as string]: `${0.08 * (index + 1)}s` }}
                 >
                   <span className="w-8 shrink-0 font-semibold tabular-nums tracking-wide text-accent">
                     {String(index + 1).padStart(2, "0")}

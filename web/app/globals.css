@@ -14,6 +14,8 @@
   --footer-fg: #f5f5f5;
   --container: min(1120px, 100% - 2rem);
   --container-narrow: 720px;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-duration: 0.7s;
 }
 
 html.dark,
@@ -52,6 +54,94 @@ html:has(#theme-switch:checked) {
     background-color: var(--surface);
     border-bottom-color: var(--border);
   }
+
+  /* Scroll reveals — only active when JS enables .js-motion (no flash / no FOUC hide) */
+  .js-motion [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 1.1rem, 0);
+    transition:
+      opacity var(--motion-duration) var(--ease-out-soft),
+      transform var(--motion-duration) var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .js-motion [data-reveal="fade"] {
+    transform: none;
+  }
+
+  .js-motion [data-reveal="left"] {
+    transform: translate3d(-1.25rem, 0, 0);
+  }
+
+  .js-motion [data-reveal="right"] {
+    transform: translate3d(1.25rem, 0, 0);
+  }
+
+  .js-motion [data-reveal="scale"] {
+    transform: scale(0.96);
+  }
+
+  .js-motion [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Soft interactive affordances */
+  .motion-link {
+    position: relative;
+    transition: color 0.2s ease;
+  }
+
+  .motion-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.28s var(--ease-out-soft);
+  }
+
+  .motion-link:hover::after,
+  .motion-link[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  .motion-arrow {
+    transition: transform 0.28s var(--ease-out-soft), opacity 0.28s ease;
+  }
+
+  .group:hover .motion-arrow {
+    transform: translateX(3px);
+  }
+
+  .motion-zoom {
+    transition: transform 0.7s var(--ease-out-soft);
+  }
+
+  .group:hover .motion-zoom {
+    transform: scale(1.04);
+  }
+
+  .motion-lift {
+    transition:
+      transform 0.25s var(--ease-out-soft),
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .motion-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .motion-lift:active {
+    transform: translateY(0);
+  }
 }
 
 @layer base {
@@ -82,6 +172,12 @@ html:has(#theme-switch:checked) {
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
     }
+
+    .js-motion [data-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
   }
 }
 
@@ -101,7 +197,16 @@ html:has(#theme-switch:checked) {
     width: 3.5rem;
     background: var(--accent);
     transform-origin: left center;
-    animation: draw-line 0.7s ease-out both;
+    animation: draw-line 0.75s var(--ease-out-soft) both;
+  }
+
+  /* Heroes / above-the-fold: animate on first paint without waiting for scroll */
+  .hero-enter {
+    animation: fade-up 0.85s var(--ease-out-soft) both;
+  }
+
+  .hero-enter-delay {
+    animation: fade-up 0.85s var(--ease-out-soft) 0.12s both;
   }
 
   .accent-rule-center {
@@ -110,14 +215,20 @@ html:has(#theme-switch:checked) {
   }
 }
 
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .img-ken {
+    animation: soft-zoom 18s ease-in-out alternate both;
+  }
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translate3d(0, 16px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -136,5 +247,21 @@ html:has(#theme-switch:checked) {
   }
   to {
     transform: scaleX(1);
+  }
+}
+
+@keyframes soft-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter,
+  .hero-enter-delay {
+    animation: none !important;
   }
 }

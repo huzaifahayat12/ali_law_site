@@ -46,7 +46,7 @@ export function ContactPanel() {
     <section id="contact-form" className="bg-surface py-16 md:py-24">
       <div className="container-site grid gap-14 lg:grid-cols-12 lg:gap-16">
         <div className="lg:col-span-5">
-          <div className="animate-[fade-up_0.7s_ease-out_both]">
+          <div data-reveal>
             <div className="accent-rule mb-6" aria-hidden />
             <h2 className="text-3xl font-semibold tracking-tight text-ink md:text-4xl">
               {CONTACT_COPY.channelsH2}
@@ -62,8 +62,10 @@ export function ContactPanel() {
               return (
                 <li
                   key={channel.id}
-                  className="animate-[fade-up_0.7s_ease-out_both]"
-                  style={{ animationDelay: `${0.06 * (index + 1)}s` }}
+                  data-reveal
+                  style={{
+                    ["--reveal-delay" as string]: `${0.06 * (index + 1)}s`,
+                  }}
                 >
                   <a
                     href={channel.href}
@@ -72,7 +74,7 @@ export function ContactPanel() {
                       : {})}
                     className="group flex gap-4 py-5 transition-colors"
                   >
-                    <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center border border-border text-accent transition-colors group-hover:border-accent">
+                    <span className="mt-0.5 flex size-10 shrink-0 items-center justify-center border border-border text-accent transition-[color,transform,border-color] duration-200 group-hover:scale-105 group-hover:border-accent">
                       <Icon className="size-4" aria-hidden />
                     </span>
                     <span className="min-w-0">
@@ -94,7 +96,10 @@ export function ContactPanel() {
         </div>
 
         <div className="lg:col-span-7">
-          <div className="animate-[fade-up_0.7s_ease-out_both] border border-border bg-bg p-6 md:p-8 lg:p-10">
+          <div
+            className="border border-border bg-bg p-6 md:p-8 lg:p-10"
+            data-reveal="right"
+          >
             <h2 className="text-2xl font-semibold tracking-tight text-ink md:text-3xl">
               {CONTACT_COPY.formH2}
             </h2>

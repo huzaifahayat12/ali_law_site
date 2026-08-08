@@ -11,12 +11,12 @@ export function PracticeAreas() {
           id={area.slug}
           className="scroll-mt-24 border-t border-border md:scroll-mt-28"
         >
-          <div className="relative h-[36vh] min-h-[220px] overflow-hidden md:h-[42vh]">
+          <div className="group relative h-[36vh] min-h-[220px] overflow-hidden md:h-[42vh]">
             <Image
               src={area.image}
               alt={area.imageAlt}
               fill
-              className="object-cover"
+              className="object-cover motion-zoom"
               sizes="100vw"
             />
             <div
@@ -24,7 +24,7 @@ export function PracticeAreas() {
               aria-hidden
             />
             <div className="container-site relative z-10 flex h-full items-end pb-8 md:pb-10">
-              <div className="animate-[fade-up_0.7s_ease-out_both]">
+              <div data-reveal>
                 <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">
                   Chapter {String(index + 1).padStart(2, "0")}
                 </p>
@@ -36,7 +36,7 @@ export function PracticeAreas() {
           </div>
 
           <div className="container-narrow py-12 md:py-16">
-            <div className="animate-[fade-up_0.7s_ease-out_both]">
+            <div data-reveal>
               <p className="text-lg leading-relaxed text-ink md:text-xl md:leading-relaxed">
                 {area.overview}
               </p>
@@ -88,7 +88,7 @@ export function PracticeAreas() {
                 </ButtonLink>
                 <a
                   href="#contents"
-                  className="text-sm font-medium text-muted transition-colors hover:text-accent"
+                  className="motion-link text-sm font-medium text-muted hover:text-accent"
                 >
                   Back to contents
                 </a>

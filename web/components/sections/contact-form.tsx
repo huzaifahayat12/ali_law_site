@@ -27,7 +27,7 @@ export function ContactForm() {
     <form
       ref={formRef}
       action={formAction}
-      className="animate-[fade-up_0.75s_ease-out_both] space-y-5"
+      className="space-y-5"
       noValidate
     >
       {/* Honeypot — leave empty */}
@@ -140,7 +140,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="inline-flex w-full items-center justify-center gap-2 border border-transparent bg-accent px-6 py-3.5 text-sm font-semibold tracking-wide text-accent-fg transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+        className="motion-lift inline-flex w-full items-center justify-center gap-2 border border-transparent bg-accent px-6 py-3.5 text-sm font-semibold tracking-wide text-accent-fg hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0 sm:w-auto"
       >
         {pending ? CONTACT_COPY.submittingLabel : CONTACT_COPY.submitLabel}
       </button>

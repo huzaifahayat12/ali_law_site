@@ -5,7 +5,10 @@ import { ButtonLink } from "@/components/ui/button-link";
 export function PracticeCta() {
   return (
     <section className="bg-footer-bg py-16 text-footer-fg md:py-20">
-      <div className="container-site flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+      <div
+        className="container-site flex flex-col items-start justify-between gap-8 md:flex-row md:items-center"
+        data-reveal
+      >
         <div className="max-w-xl">
           <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
             {PRACTICE_COPY.ctaH2}

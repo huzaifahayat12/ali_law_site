@@ -7,7 +7,7 @@ export function EventsUpdates() {
       className="scroll-mt-24 bg-surface py-16 md:scroll-mt-28 md:py-20"
     >
       <div className="container-site">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl" data-reveal>
           <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">
             From the chambers
           </p>
@@ -18,7 +18,7 @@ export function EventsUpdates() {
         </div>
 
         {UPDATES.length === 0 ? (
-          <div className="mt-12 max-w-xl border-t-2 border-accent pt-8">
+          <div className="mt-12 max-w-xl border-t-2 border-accent pt-8" data-reveal>
             <p className="text-base leading-relaxed text-muted md:text-lg">
               {EVENTS_COPY.updatesEmpty}
             </p>
@@ -28,8 +28,9 @@ export function EventsUpdates() {
             {UPDATES.map((update, index) => (
               <li
                 key={update.id}
-                className="animate-[fade-up_0.7s_ease-out_both] border-l-2 border-accent py-6 pl-5 md:pl-6"
-                style={{ animationDelay: `${index * 80}ms` }}
+                className="border-l-2 border-accent py-6 pl-5 md:pl-6"
+                data-reveal
+                style={{ ["--reveal-delay" as string]: `${index * 80}ms` }}
               >
                 <p className="text-xs font-semibold tracking-[0.16em] text-accent uppercase">
                   {update.date}

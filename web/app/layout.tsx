@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import Script from "next/script";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { RevealObserver } from "@/components/motion/reveal-observer";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
 
@@ -65,6 +66,7 @@ export default function RootLayout({
         <Header />
         <main className="relative z-0 flex-1">{children}</main>
         <Footer />
+        <RevealObserver />
       </body>
     </html>
   );

@@ -11,9 +11,9 @@ export function HomePrinciple() {
         }}
         aria-hidden
       />
-      <div className="container-narrow relative text-center">
+      <div className="container-narrow relative text-center" data-reveal>
         <div className="accent-rule accent-rule-center mb-8" aria-hidden />
-        <blockquote className="animate-[fade-up_0.8s_ease-out_both] text-2xl font-medium leading-snug tracking-tight text-footer-fg md:text-3xl md:leading-snug">
+        <blockquote className="text-2xl font-medium leading-snug tracking-tight text-footer-fg md:text-3xl md:leading-snug">
           {HOME_COPY.principleQuote}
         </blockquote>
         <p className="mt-6 text-sm tracking-[0.12em] text-accent uppercase">

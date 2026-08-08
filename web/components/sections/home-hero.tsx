@@ -10,7 +10,7 @@ export function HomeHero() {
         alt={`${SITE.advocate}, ${SITE.title}`}
         fill
         priority
-        className="pointer-events-none object-cover object-[center_20%]"
+        className="pointer-events-none img-ken object-cover object-[center_20%]"
         sizes="100vw"
       />
       <div
@@ -23,7 +23,7 @@ export function HomeHero() {
       />
 
       <div className="container-site relative z-10 flex min-h-[100svh] flex-col justify-end pb-16 pt-28 md:justify-center md:pb-24 md:pt-32">
-        <div className="max-w-2xl animate-[fade-up_0.8s_ease-out_both]">
+        <div className="hero-enter max-w-2xl">
           <h1 className="text-4xl font-bold uppercase tracking-[0.06em] text-white sm:text-5xl md:text-6xl lg:text-7xl">
             {SITE.name}
           </h1>

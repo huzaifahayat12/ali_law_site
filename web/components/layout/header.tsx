@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Moon, Sun, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { NAV_LINKS, SITE, whatsappUrl } from "@/lib/constants";
 import { ButtonLink } from "@/components/ui/button-link";
 
@@ -98,7 +98,8 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors ${
+                aria-current={active ? "page" : undefined}
+                className={`motion-link text-sm font-medium ${
                   active
                     ? "text-accent"
                     : solid
@@ -171,18 +172,24 @@ export function Header() {
               />
             </summary>
 
-            <div className="fixed inset-x-0 top-[calc(3.5rem+env(safe-area-inset-top,0px))] z-[120] max-h-[min(70dvh,28rem)] overflow-y-auto border-b border-t border-border bg-surface sm:top-[calc(4rem+env(safe-area-inset-top,0px))]">
+            <div className="fixed inset-x-0 top-[calc(3.5rem+env(safe-area-inset-top,0px))] z-[120] max-h-[min(70dvh,28rem)] overflow-y-auto border-b border-t border-border bg-surface animate-[fade-in_0.2s_ease-out_both] sm:top-[calc(4rem+env(safe-area-inset-top,0px))]">
               <nav
                 className="container-site flex flex-col gap-1 py-4"
                 aria-label="Mobile"
               >
-                {NAV_LINKS.map((link) => (
+                {NAV_LINKS.map((link, index) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`px-2 py-3 text-base font-medium ${
+                    className={`px-2 py-3 text-base font-medium hero-enter ${
                       pathname === link.href ? "text-accent" : "text-ink"
                     }`}
+                    style={
+                      {
+                        animationDuration: "0.35s",
+                        animationDelay: `${40 + index * 35}ms`,
+                      } as CSSProperties
+                    }
                   >
                     {link.label}
                   </Link>

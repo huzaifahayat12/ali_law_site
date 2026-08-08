@@ -26,7 +26,7 @@ export function Footer() {
           <ul className="space-y-2 text-sm">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="hover:text-accent">
+                <Link href={link.href} className="motion-link hover:text-accent">
                   {link.label}
                 </Link>
               </li>

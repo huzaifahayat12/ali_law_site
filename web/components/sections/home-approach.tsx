@@ -4,7 +4,7 @@ export function HomeApproach() {
   return (
     <section className="bg-surface py-16 md:py-20">
       <div className="container-site">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl" data-reveal>
           <div className="accent-rule mb-6" aria-hidden />
           <h2 className="text-2xl font-semibold tracking-tight text-ink md:text-3xl">
             {HOME_COPY.approachH2}
@@ -16,8 +16,9 @@ export function HomeApproach() {
           {HOME_COPY.approachSteps.map((item, index) => (
             <li
               key={item.step}
-              className="relative animate-[fade-up_0.7s_ease-out_both]"
-              style={{ animationDelay: `${index * 120}ms` }}
+              className="relative"
+              data-reveal
+              style={{ ["--reveal-delay" as string]: `${index * 120}ms` }}
             >
               <span className="block font-semibold tracking-[0.2em] text-accent">
                 {item.step}

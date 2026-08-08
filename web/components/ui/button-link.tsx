@@ -27,7 +27,7 @@ export function ButtonLink({
   className = "",
   external = false,
 }: ButtonLinkProps) {
-  const classes = `inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide transition-colors ${variants[variant]} ${className}`;
+  const classes = `motion-lift inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide ${variants[variant]} ${className}`;
 
   if (external) {
     return (

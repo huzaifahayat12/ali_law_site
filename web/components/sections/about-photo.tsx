@@ -16,7 +16,10 @@ export function AboutPhoto() {
         aria-hidden
       />
       <div className="container-site relative z-10 flex min-h-[48vh] items-end pb-12 md:min-h-[56vh] md:pb-16">
-        <p className="max-w-xl animate-[fade-up_0.8s_ease-out_both] text-lg font-medium leading-snug text-white md:text-2xl">
+        <p
+          className="max-w-xl text-lg font-medium leading-snug text-white md:text-2xl"
+          data-reveal
+        >
           {ABOUT_COPY.photoCaption}
         </p>
       </div>

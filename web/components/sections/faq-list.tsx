@@ -48,7 +48,7 @@ export function FaqList() {
       className="scroll-mt-24 bg-bg py-16 md:scroll-mt-28 md:py-20"
     >
       <div className="container-site">
-        <div className="mx-auto max-w-3xl text-center animate-[fade-up_0.7s_ease-out_both]">
+        <div className="mx-auto max-w-3xl text-center" data-reveal>
           <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">
             {FAQ_ITEMS.length} answers
           </p>
@@ -149,8 +149,10 @@ export function FaqList() {
                 return (
                   <li
                     key={item.id}
-                    className="animate-[fade-up_0.55s_ease-out_both]"
-                    style={{ animationDelay: `${Math.min(index, 8) * 0.04}s` }}
+                    data-reveal
+                    style={{
+                      ["--reveal-delay" as string]: `${Math.min(index, 8) * 0.04}s`,
+                    }}
                   >
                     <h3>
                       <button
@@ -188,7 +190,7 @@ export function FaqList() {
                       className={isOpen ? "pb-6 pl-12 sm:pl-[3.25rem]" : undefined}
                     >
                       {isOpen ? (
-                        <p className="max-w-2xl text-sm leading-relaxed text-muted animate-[fade-in_0.35s_ease-out_both] md:text-base">
+                        <p className="max-w-2xl text-sm leading-relaxed text-muted animate-[fade-in_0.3s_ease-out_both] md:text-base">
                           {item.answer}
                         </p>
                       ) : null}

@@ -6,7 +6,7 @@ export function HomePracticePreview() {
   return (
     <section className="bg-bg py-16 md:py-20">
       <div className="container-site">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl" data-reveal>
           <h2 className="text-2xl font-semibold tracking-tight text-ink md:text-3xl">
             Practice areas
           </h2>
@@ -14,8 +14,12 @@ export function HomePracticePreview() {
         </div>
 
         <ul className="mt-10 grid gap-x-10 gap-y-4 sm:grid-cols-2">
-          {PRACTICE_PREVIEW.map((area) => (
-            <li key={area.slug}>
+          {PRACTICE_PREVIEW.map((area, index) => (
+            <li
+              key={area.slug}
+              data-reveal
+              style={{ ["--reveal-delay" as string]: `${index * 50}ms` }}
+            >
               <Link
                 href={`/practice-area#${area.slug}`}
                 className="group flex items-center justify-between border-b border-border py-3 text-ink transition-colors hover:text-accent"
@@ -23,7 +27,7 @@ export function HomePracticePreview() {
                 <span className="font-medium">{area.label}</span>
                 <ArrowRight
                   size={16}
-                  className="opacity-0 transition-opacity group-hover:opacity-100"
+                  className="motion-arrow opacity-0 group-hover:opacity-100"
                   aria-hidden
                 />
               </Link>
@@ -33,10 +37,11 @@ export function HomePracticePreview() {
 
         <Link
           href="/practice-area"
-          className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-hover"
+          className="group mt-8 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:text-accent-hover"
+          data-reveal
         >
           View all practice areas
-          <ArrowRight size={16} />
+          <ArrowRight size={16} className="motion-arrow" />
         </Link>
       </div>
     </section>

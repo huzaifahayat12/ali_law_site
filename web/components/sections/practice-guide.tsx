@@ -5,7 +5,7 @@ export function PracticeGuide() {
     <section id="contents" className="scroll-mt-24 bg-bg py-16 md:scroll-mt-28 md:py-20">
       <div className="container-site">
         <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
-          <div className="max-w-md">
+          <div className="max-w-md" data-reveal>
             <p className="text-xs font-semibold tracking-[0.2em] text-accent uppercase">
               Study guide
             </p>
@@ -20,7 +20,7 @@ export function PracticeGuide() {
             </p>
           </div>
 
-          <nav aria-label="Jump to practice area">
+          <nav aria-label="Jump to practice area" data-reveal style={{ ["--reveal-delay" as string]: "80ms" }}>
             <p className="mb-4 text-xs font-semibold tracking-[0.18em] text-muted uppercase">
               Contents · {PRACTICE_AREAS.length} areas
             </p>
@@ -38,7 +38,7 @@ export function PracticeGuide() {
                       {area.label}
                     </span>
                     <span
-                      className="hidden text-sm text-muted transition-colors group-hover:text-accent sm:inline"
+                      className="motion-arrow hidden text-sm text-muted transition-colors group-hover:text-accent sm:inline"
                       aria-hidden
                     >
                       →

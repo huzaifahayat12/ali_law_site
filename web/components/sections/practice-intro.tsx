@@ -5,7 +5,7 @@ export function PracticeIntro() {
   return (
     <section className="grid min-h-[72svh] bg-footer-bg pt-[env(safe-area-inset-top,0px)] lg:min-h-[80svh] lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
       <div className="flex flex-col justify-end px-6 pb-12 pt-28 sm:px-8 md:pb-16 md:pt-32 lg:px-12 xl:pl-[max(1.5rem,calc((100vw-1120px)/2))]">
-        <div className="max-w-xl animate-[fade-up_0.8s_ease-out_both]">
+        <div className="hero-enter max-w-xl">
           <p className="text-xs font-semibold tracking-[0.22em] text-accent uppercase">
             {PRACTICE_COPY.introLabel}
           </p>
@@ -21,13 +21,13 @@ export function PracticeIntro() {
         </div>
       </div>
 
-      <div className="relative min-h-[42vh] lg:min-h-full">
+      <div className="relative min-h-[42vh] overflow-hidden lg:min-h-full">
         <Image
           src="/images/practice/practice-hero.jpg"
           alt={`${SITE.name} practice areas — counsel and preparation`}
           fill
           priority
-          className="object-cover object-center"
+          className="img-ken object-cover object-center"
           sizes="(max-width: 1024px) 100vw, 50vw"
         />
         <div

@@ -7,7 +7,7 @@ export function ContactVisit() {
   return (
     <section id="visit-chambers" className="bg-bg py-16 md:py-24">
       <div className="container-site">
-        <div className="mx-auto max-w-2xl text-center animate-[fade-up_0.7s_ease-out_both]">
+        <div className="mx-auto max-w-2xl text-center" data-reveal>
           <div className="accent-rule accent-rule-center mb-6" aria-hidden />
           <h2 className="text-3xl font-semibold tracking-tight text-ink md:text-4xl">
             {CONTACT_COPY.visitH2}
@@ -19,8 +19,9 @@ export function ContactVisit() {
         </div>
 
         <div
-          className="relative mt-12 overflow-hidden border border-border animate-[fade-in_0.9s_ease-out_both]"
-          style={{ animationDelay: "0.12s" }}
+          className="relative mt-12 overflow-hidden border border-border"
+          data-reveal="fade"
+          style={{ ["--reveal-delay" as string]: "0.12s" }}
         >
           <iframe
             title={`Map — ${CONTACT_COPY.mapCaption}`}
@@ -31,7 +32,7 @@ export function ContactVisit() {
             allowFullScreen
           />
         </div>
-        <p className="mt-4 text-center text-sm text-muted">
+        <p className="mt-4 text-center text-sm text-muted" data-reveal>
           {CONTACT_COPY.mapCaption}
         </p>
       </div>

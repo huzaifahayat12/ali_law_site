@@ -9,7 +9,7 @@ export function AboutIntro() {
         alt={`${SITE.advocate}, ${SITE.title}`}
         fill
         priority
-        className="pointer-events-none object-cover object-[center_18%]"
+        className="pointer-events-none img-ken object-cover object-[center_18%]"
         sizes="100vw"
       />
       <div
@@ -22,7 +22,7 @@ export function AboutIntro() {
       />
 
       <div className="container-site relative z-10 flex min-h-[70svh] flex-col justify-end pb-14 pt-28 md:min-h-[78svh] md:pb-20 md:pt-32">
-        <div className="max-w-2xl animate-[fade-up_0.8s_ease-out_both]">
+        <div className="hero-enter max-w-2xl">
           <p className="text-sm font-semibold tracking-[0.2em] text-accent uppercase">
             {ABOUT_COPY.introLabel}
           </p>
