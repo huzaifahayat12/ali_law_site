@@ -200,6 +200,21 @@ export const PRACTICE_COPY = {
     "Describe your situation on WhatsApp — we will point you to the right path and next step.",
 } as const;
 
+export const TEAM_COPY = {
+  introLabel: "Our Team",
+  introHeadline: SITE.name,
+  introSupport:
+    "Associates and counsel alongside Ali Raza Wahga — profiles are being prepared for this page.",
+  soonLabel: "Coming soon",
+  soonH2: "Chamber profiles on the way",
+  soonBody:
+    "We are preparing introductions to the advocates and associates who work with Ali Law Associate. Check back shortly — or reach chambers if you need counsel now.",
+  soonNote: "Team biographies and roles will appear here when ready.",
+  ctaH2: "Need counsel in the meantime?",
+  ctaSupport:
+    "Message on WhatsApp for the fastest response — or learn more about the practice.",
+} as const;
+
 export const EVENTS_COPY = {
   introLabel: "Events & Updates",
   introHeadline: SITE.name,
