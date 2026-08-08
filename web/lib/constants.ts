@@ -200,6 +200,52 @@ export const PRACTICE_COPY = {
     "Describe your situation on WhatsApp — we will point you to the right path and next step.",
 } as const;
 
+export const EVENTS_COPY = {
+  introLabel: "Events & Updates",
+  introHeadline: SITE.name,
+  introSupport:
+    "Bar engagement, chamber moments, and notices from the practice — published here when there is something to share.",
+  purposeH2: "Present in the profession",
+  purposeBody: [
+    "Advocacy is not only the brief on the desk. Standing grows through Bar gatherings, chamber work, and how counsel meets people when the matter is personal.",
+    "When Ali Law Associate hosts or attends an event — or has a practice update worth noting — it will appear on this page.",
+  ],
+  eventsH2: "Events",
+  eventsBody:
+    "Gatherings, Bar engagements, and public appearances connected to the chambers.",
+  eventsEmpty:
+    "No events listed at this time. When there is a gathering, Bar engagement, or appearance to share, it will be posted here.",
+  updatesH2: "Updates",
+  updatesBody:
+    "Short notices from the practice — chamber news and professional notes.",
+  updatesEmpty:
+    "No updates published yet. Practice notices will appear here as they are released.",
+  photoCaption:
+    "From chambers to the Bar — presence that sits alongside the brief.",
+  ctaH2: "Have a matter to discuss?",
+  ctaSupport:
+    "Message on WhatsApp for the fastest response — or use the contact form.",
+} as const;
+
+/** Add events here when there are any. Newest first. */
+export const EVENTS: readonly {
+  id: string;
+  title: string;
+  date: string;
+  location?: string;
+  body: string;
+  image?: string;
+  imageAlt?: string;
+}[] = [];
+
+/** Add updates here when there are any. Newest first. */
+export const UPDATES: readonly {
+  id: string;
+  title: string;
+  date: string;
+  body: string;
+}[] = [];
+
 export const PRACTICE_AREAS = [
   {
     slug: "civil-litigation",
