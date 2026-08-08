@@ -2,43 +2,30 @@ import Image from "next/image";
 import Link from "next/link";
 import { HOME_COPY } from "@/lib/constants";
 
-export function HomeSuccessTeaser() {
+export function HomeTeamTeaser() {
   return (
     <section className="bg-bg py-16 md:py-20">
       <div className="container-site grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <div className="relative aspect-[4/5] overflow-hidden md:aspect-[3/4] lg:order-2">
           <Image
-            src="/images/success-teaser.jpg"
-            alt="Speaking at the Lahore High Court Bar Association"
+            src="/images/team-chambers.jpg"
+            alt="Advocates at Ali Law Associate chambers"
             fill
-            className="object-cover object-center"
+            className="object-cover object-top"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>
 
         <div className="lg:order-1">
           <h2 className="text-2xl font-semibold tracking-tight text-ink md:text-3xl">
-            {HOME_COPY.successH2}
+            {HOME_COPY.teamH2}
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted md:text-lg">
-            {HOME_COPY.successBody}
+            {HOME_COPY.teamBody}
           </p>
-
-          <ul className="mt-8 space-y-5">
-            {HOME_COPY.successItems.map((item) => (
-              <li key={item.title} className="border-l-2 border-accent pl-5">
-                <h3 className="text-lg font-semibold text-ink">{item.title}</h3>
-                <p className="mt-2 text-muted">{item.body}</p>
-              </li>
-            ))}
-          </ul>
-
           <div className="mt-8 flex flex-wrap gap-4 text-sm font-semibold">
-            <Link
-              href="/events-updates"
-              className="text-accent hover:text-accent-hover"
-            >
-              Events & updates
+            <Link href="/our-team" className="text-accent hover:text-accent-hover">
+              Meet the team
             </Link>
             <span className="text-border" aria-hidden>
               |

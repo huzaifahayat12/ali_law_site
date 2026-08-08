@@ -95,6 +95,19 @@ html:has(#theme-switch:checked) {
     width: min(var(--container-narrow), 100% - 2rem);
     margin-inline: auto;
   }
+
+  .accent-rule {
+    height: 2px;
+    width: 3.5rem;
+    background: var(--accent);
+    transform-origin: left center;
+    animation: draw-line 0.7s ease-out both;
+  }
+
+  .accent-rule-center {
+    margin-inline: auto;
+    transform-origin: center;
+  }
 }
 
 @keyframes fade-up {
@@ -105,5 +118,23 @@ html:has(#theme-switch:checked) {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes draw-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }

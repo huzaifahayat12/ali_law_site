@@ -47,7 +47,15 @@ export const HOME_COPY = {
   aboutH2: "Meet Ali Raza Wahga",
   aboutBody:
     "Advocate High Court — chamber practice at Manki Chambers, Turner Road, Lahore.",
-  successH2: "Hard work in practice",
+  teamH2: "A chamber built for advocacy",
+  teamBody:
+    "Associates and counsel work alongside Ali Raza Wahga — files prepared, arguments sharpened, clients kept informed.",
+  chambersH2: "From chambers to the High Court",
+  chambersBody:
+    "Day-to-day practice spans Manki Chambers on Turner Road and appearances before the Lahore High Court.",
+  successH2: "Present in the profession",
+  successBody:
+    "Active engagement with the Lahore High Court Bar — advocacy that extends beyond a single brief.",
   successItems: [
     {
       title: "Chamber & court advocacy",
@@ -58,6 +66,69 @@ export const HOME_COPY = {
       body: "Practical guidance from first consult through WhatsApp and email follow-up.",
     },
   ],
+  galleryH2: "Practice in pictures",
+  galleryBody: "Moments from chambers, court corridors, and matters in progress.",
+  principleQuote:
+    "Clear advice. Steady presence. Advocacy that holds up when it matters.",
+  principleAttr: "Ali Law Associate · Lahore",
+  approachH2: "How a matter moves",
+  approachBody: "A direct path from first contact to representation.",
+  approachSteps: [
+    {
+      step: "01",
+      title: "Consult",
+      body: "Share the facts on WhatsApp or in chambers — we frame the issue.",
+    },
+    {
+      step: "02",
+      title: "Counsel",
+      body: "Options, risks, and next steps explained in plain language.",
+    },
+    {
+      step: "03",
+      title: "Advocate",
+      body: "Filings, hearings, and follow-through before the relevant forum.",
+    },
+  ],
+  imageBreakCaption: "Preparation before the hearing — chambers work that shows in court.",
+  valuesH2: "What guides the practice",
+  valuesBody: "Standards we hold on every brief.",
+  values: [
+    {
+      title: "Clarity first",
+      body: "You leave each conversation knowing where the matter stands.",
+    },
+    {
+      title: "Court readiness",
+      body: "Papers, authorities, and argument prepared before you need them.",
+    },
+    {
+      title: "Responsive counsel",
+      body: "Reach us by WhatsApp, call, or email when something shifts.",
+    },
+  ],
+  engagementH2: "Presence beyond the brief",
+  engagementBody:
+    "Professional standing is built in chambers, at the Bar, and in how counsel meets people when the matter is personal.",
   ctaH2: "Ready to discuss your matter?",
   ctaSupport: "Message on WhatsApp for the fastest response.",
 } as const;
+
+export const HOME_GALLERY = [
+  {
+    src: "/images/team-group.jpg",
+    alt: "Ali Law Associate team at chambers",
+  },
+  {
+    src: "/images/court-corridor.jpg",
+    alt: "Ali Raza Wahga at the court complex",
+  },
+  {
+    src: "/images/chambers-consult.jpg",
+    alt: "Consultation at chambers",
+  },
+  {
+    src: "/images/court-matter.jpg",
+    alt: "Counsel outside the court building",
+  },
+] as const;
