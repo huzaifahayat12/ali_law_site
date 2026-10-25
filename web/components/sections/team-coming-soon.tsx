@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { TEAM_COPY } from "@/lib/constants";
+import { OUR_TEAM_IMAGES } from "./constant";
+import Image from "next/image";
 
 export function TeamComingSoon() {
   return (
@@ -52,17 +54,23 @@ export function TeamComingSoon() {
           </div>
         </div>
 
-        <div
-          className="mx-auto mt-16 grid max-w-3xl grid-cols-3 gap-4 md:mt-20 md:gap-6"
-          aria-hidden
-        >
-          {[0, 1, 2].map((i) => (
+        <div className="mx-auto mt-16 grid max-w-3xl grid-cols-3 gap-4 md:mt-20 md:gap-6">
+          {OUR_TEAM_IMAGES.map((person, i) => (
             <div
-              key={i}
-              className="team-soon-slot aspect-[3/4]"
-              data-reveal
+              key={person.name}
+              className="team-soon-slot mx-auto aspect-[3/4] w-full overflow-hidden text-center"
+              data-reveal="scale"
               style={{ ["--reveal-delay" as string]: `${180 + i * 100}ms` }}
-            />
+            >
+              <p className="relative z-10 text-xs font-semibold tracking-[0.22em] text-accent uppercase">{person.name}</p>
+              <Image
+                width={360}
+                height={480}
+                src={person.image}
+                alt={person.name}
+                className="h-full w-full object-cover transition-transform duration-300 ease-out will-change-transform"
+              />
+            </div>
           ))}
         </div>
       </div>
