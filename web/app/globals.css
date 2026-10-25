@@ -1,0 +1,367 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f5f5f5;
+  --surface: #ffffff;
+  --ink: #000000;
+  --muted: #5a5a5a;
+  --accent: #b1976b;
+  --accent-hover: #977f55;
+  --accent-fg: #ffffff;
+  --border: #dddddd;
+  --focus: #977f55;
+  --footer-bg: #1a1a1a;
+  --footer-fg: #f5f5f5;
+  --container: min(1120px, 100% - 2rem);
+  --container-narrow: 720px;
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-duration: 0.7s;
+}
+
+html.dark,
+html:has(#theme-switch:checked) {
+  --bg: #161616;
+  --surface: #1a1a1a;
+  --ink: #f5f5f5;
+  --muted: #a3a3a3;
+  --accent: #b1976b;
+  --accent-hover: #c4ad82;
+  --accent-fg: #161616;
+  --border: #2e2e2e;
+  --focus: #b1976b;
+  --footer-bg: #0f0f0f;
+  --footer-fg: #f5f5f5;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-fg: var(--accent-fg);
+  --color-border: var(--border);
+  --color-focus: var(--focus);
+  --color-footer-bg: var(--footer-bg);
+  --color-footer-fg: var(--footer-fg);
+  --font-sans: var(--font-poppins);
+}
+
+/* Guarantee opaque header paint on mobile WebViews that mishandle fixed + blur/alpha */
+@layer components {
+  header.site-header-solid {
+    background-color: var(--surface);
+    border-bottom-color: var(--border);
+  }
+
+  /* Scroll reveals — only active when JS enables .js-motion (no flash / no FOUC hide) */
+  .js-motion [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 1.1rem, 0);
+    transition:
+      opacity var(--motion-duration) var(--ease-out-soft),
+      transform var(--motion-duration) var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .js-motion [data-reveal="fade"] {
+    transform: none;
+  }
+
+  .js-motion [data-reveal="left"] {
+    transform: translate3d(-1.25rem, 0, 0);
+  }
+
+  .js-motion [data-reveal="right"] {
+    transform: translate3d(1.25rem, 0, 0);
+  }
+
+  .js-motion [data-reveal="scale"] {
+    transform: scale(0.96);
+  }
+
+  .js-motion [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Soft interactive affordances */
+  .motion-link {
+    position: relative;
+    transition: color 0.2s ease;
+  }
+
+  .motion-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.28s var(--ease-out-soft);
+  }
+
+  .motion-link:hover::after,
+  .motion-link[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  .motion-arrow {
+    transition: transform 0.28s var(--ease-out-soft), opacity 0.28s ease;
+  }
+
+  .group:hover .motion-arrow {
+    transform: translateX(3px);
+  }
+
+  .motion-zoom {
+    transition: transform 0.7s var(--ease-out-soft);
+  }
+
+  .group:hover .motion-zoom {
+    transform: scale(1.04);
+  }
+
+  .motion-lift {
+    transition:
+      transform 0.25s var(--ease-out-soft),
+      background-color 0.2s ease,
+      border-color 0.2s ease,
+      color 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  .motion-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .motion-lift:active {
+    transform: translateY(0);
+  }
+
+  /* Our Team — coming soon */
+  .team-soon-glow {
+    background:
+      radial-gradient(
+        ellipse 55% 40% at 50% 20%,
+        color-mix(in srgb, var(--accent) 14%, transparent),
+        transparent 70%
+      );
+    animation: team-glow-breathe 6s ease-in-out infinite alternate;
+  }
+
+  .team-soon-mark {
+    position: relative;
+  }
+
+  .team-soon-ring {
+    position: absolute;
+    inset: 0;
+    border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+    border-radius: 9999px;
+    animation: team-ring-pulse 2.8s var(--ease-out-soft) infinite;
+  }
+
+  .team-soon-ring-delay {
+    animation-delay: 1.4s;
+  }
+
+  .team-soon-slot {
+    border: 1px solid var(--border);
+    background:
+      linear-gradient(
+        160deg,
+        color-mix(in srgb, var(--surface) 92%, var(--accent)),
+        var(--surface)
+      );
+    position: relative;
+    overflow: hidden;
+  }
+
+  .team-soon-slot::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      110deg,
+      transparent 30%,
+      color-mix(in srgb, var(--accent) 12%, transparent) 50%,
+      transparent 70%
+    );
+    transform: translateX(-120%);
+    animation: team-shimmer 3.6s var(--ease-out-soft) infinite;
+  }
+
+  .team-soon-slot:nth-child(2)::after {
+    animation-delay: 0.5s;
+  }
+
+  .team-soon-slot:nth-child(3)::after {
+    animation-delay: 1s;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-poppins), system-ui, sans-serif;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .js-motion [data-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+@layer utilities {
+  .container-site {
+    width: var(--container);
+    margin-inline: auto;
+  }
+
+  .container-narrow {
+    width: min(var(--container-narrow), 100% - 2rem);
+    margin-inline: auto;
+  }
+
+  .accent-rule {
+    height: 2px;
+    width: 3.5rem;
+    background: var(--accent);
+    transform-origin: left center;
+    animation: draw-line 0.75s var(--ease-out-soft) both;
+  }
+
+  /* Heroes / above-the-fold: animate on first paint without waiting for scroll */
+  .hero-enter {
+    animation: fade-up 0.85s var(--ease-out-soft) both;
+  }
+
+  .hero-enter-delay {
+    animation: fade-up 0.85s var(--ease-out-soft) 0.12s both;
+  }
+
+  .accent-rule-center {
+    margin-inline: auto;
+    transform-origin: center;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .img-ken {
+    animation: soft-zoom 18s ease-in-out alternate both;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes draw-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes soft-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes team-ring-pulse {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  70% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+@keyframes team-glow-breathe {
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes team-shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+  45%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-enter,
+  .hero-enter-delay {
+    animation: none !important;
+  }
+
+  .team-soon-glow,
+  .team-soon-ring,
+  .team-soon-slot::after {
+    animation: none !important;
+  }
+}
